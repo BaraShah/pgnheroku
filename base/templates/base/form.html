@@ -1,0 +1,102 @@
+{% extends 'main.html' %}
+<!-- {% load static %} -->
+
+{% block content %}
+<div class="box">
+    <form method="Post">
+        {% csrf_token %}
+        <div class="sec">
+            <label>: الاسم</label>
+            {% if predata %}
+            <input type="text" name="name" value={{name}} required class="input nmi">
+            {% else %}
+            <input type="text" name="name" required class="input nmi">
+            {% endif %}
+        </div>
+        <div class="sec">
+            <label>: الرقم</label>
+            {% if predata %}
+            <input type="number" name="ring" value={{ringnum}} required class="input rni">
+            {% else %}
+            <input type="number" name="ring" required class="input rni">
+            {% endif %}
+        </div>
+        <div class="sec">
+            <label>: رقم الانتاج</label>
+            {% if predata %}
+            <input type="text" name="eggsr" value={{egg}} required class="input esi">
+            {% else %}
+            <input type="text" name="eggsr" required class="input esi">
+            {% endif %}
+        </div>
+        <div class="sec">
+            <label>: رقم البيضة</label>
+            {% if predata %}
+            <select id="opt" class="input" name="eggor">
+                <option value="None" disabled>Select here:</option>
+                {% if eggnum == '1' %}
+                <option value="1" selected>1</option>
+                <option value="2" >2</option>
+                {% else %}
+                <option value="1" >1</option>
+                <option value="2" selected>2</option>
+                {% endif %}
+            </select>
+            {% else %}
+            <select id="opt" class="input" name="eggor">
+                <option value="None" disabled>Select here:</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+            {% endif %}
+        </div>
+        <div class="sec">
+            <label>: تاريخ البيضة</label>
+            {% if today %}
+            <input type="date" name="eggd" value={{today}} class="input">
+            {% else %}
+            <input type="date" name="eggd" class="input">
+            {% endif %}
+        </div>
+        <div class="sec">
+            <label>: تاريخ الفرخ</label>
+            {% if predata %}
+            <input type="date" name="chd" value={{childay}} class="input">
+            {% else %}
+            <input type="date" name="chd" class="input">
+            {% endif %}
+        </div>
+        <div class="sec">
+            <label>: رقم المحكر</label>
+            {% if predata %}
+            <input type="number" name="hnum" value={{homenum}} class="input">
+            {% else %}
+            <input type="number" name="hnum" class="input">
+            {% endif %}
+        </div>
+        <div class="sec">
+            <label>: رقم الغرفة</label>
+            {% if predata %}
+            <input type="number" name="rnum" value={{roomnum}} class="input">
+            {% else %}
+            <input type="number" name="rnum" class="input">
+            {% endif %}
+        </div>
+        <div class="sec">
+            <label>: رقم الحاضن</label>
+            {% if predata %}
+            <input type="number" name="nrnum" value={{nurseringnum}} class="input">
+            {% else %}
+            <input type="number" name="nrnum" class="input">
+            {% endif %}
+        </div>
+        <div class="btns">
+            <a class="btn cnc" href={% url 'home' %}>Cancel</a>
+            {% if predata %}
+            <a class="btn cnc" href={% url 'delete' id %}>Delete</a>
+            {% endif %}
+            <input type="submit" value={{tag}} class="btn add">
+        </div>
+    </form>
+</div>
+{% endblock content %}

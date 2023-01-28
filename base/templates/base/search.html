@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="box">
+    <form method="Post">
+        {% csrf_token %}
+        <div class="sec">
+            <label>: الاسم</label>
+            <input type="text" name="name" class="input nmi">
+        </div>
+        <div class="sec">
+            <label>: الرقم</label>
+            <input type="number" name="ring" class="input rni">
+        </div>
+        <div class="sec">
+            <label>: رقم الانتاج</label>
+            <input type="text" name="eggsr" class="input esi">
+        </div>
+        <div class="sec">
+            <label>: رقم البيضة</label>
+            <select id="opt" class="input" name="eggor">
+                <option value="None" disabled>Select here:</option>
+                <option value="" selected></option>
+                <option value="1" >1</option>
+                <option value="2" >2</option>
+            </select>
+        </div>
+        <div class="sec">
+            <label>: تاريخ البيضة</label>
+            <input type="date" name="eggd" class="input">
+        </div>
+        <div class="sec">
+            <label>: تاريخ الفرخ</label>
+            <input type="date" name="chd" class="input">
+        </div>
+        <div class="sec">
+            <label>: رقم المحكر</label>
+            <input type="number" name="hnum" class="input">
+        </div>
+        <div class="sec">
+            <label>: رقم الغرفة</label>
+            <input type="number" name="rnum" class="input">
+        </div>
+        <div class="sec">
+            <label>: رقم الحاضن</label>
+            <input type="number" name="nrnum" class="input">
+        </div>
+        <div class="btns">
+            <a class="btn cnc" href={% url 'home' %}>Back</a>
+            <input type="submit" value='Search' class="btn add">
+        </div>
+    </form>
+</div>
+{% endblock content %}

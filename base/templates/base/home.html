@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% block content %}
+    <div class="con">
+        {% for p in pgn %}
+        <a href={% url 'edit' p.id %} class="row">
+            <div class="nm">{{p.name}}</div>
+            <div class="dtl">
+                <div class="irow i">
+                    <div class="cell">
+                        <div class="ttl">الرقم</div>
+                        <div class="info">{{p.ringnum}}</div>
+                    </div>
+    
+                    <div class="cell">
+                        <div class="ttl">رقم الحاضن</div>
+                        <div class="info">{{p.nurseringnum}}</div>
+                    </div>
+
+                    <div class="cell">
+                        <div class="ttl">: رقم الانتاج</div>
+                        <div class="info">{{p.egg}}</div>
+                    </div>
+    
+                    <div class="cell">
+                        <div class="ttl">رقم البيضة</div>
+                        <div class="info">{{p.eggnum}}</div>
+                    </div>
+                </div>
+
+                <div class="irow ii">
+                    <div class="cell">
+                        <div class="ttl">تاريخ البيضة</div>
+                        <div class="info">{{p.eggday}}</div>
+                    </div>
+
+                    <div class="cell">
+                        <div class="ttl">تاريخ الفرخ</div>
+                        <div class="info">{{p.childay}}</div>
+                    </div>
+    
+                    <div class="cell">
+                        <div class="ttl">المحكر</div>
+                        <div class="info">{{p.homenum}}</div>
+                    </div>
+    
+                    <div class="cell">
+                        <div class="ttl">الغرفة</div>
+                        <div class="info">{{p.roomnum}}</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+{% endblock content %}
